@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+body{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:#44085e;
+   
+}
+
+.wrapper{
+    margin:10px;
+    padding:20px;
+    width:300px;
+}
+
+.form-box .logo{
+    text-align: center;
+}
+
+.form-box img{
+    text-align: center;
+}
+
+.form-box .forgot-pass a{
+    color:#f3d3d39a;
+}
+
+.form-box .btn{
+    width: 100%;
+    height: 45px;
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 40px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: .5s;
+    color: #f3d3d39a;
+}
+
+.input-box input:focus~label,
+.input-box input:user-valid~label{
+    top: -5px;
+}
+
+.input-box input{
+   width:100%;
+   height:100%;
+   background: transparent;
+   border: none;
+   outline: none;
+   color: #fff;
+   font-size:15px;
+   padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 17px;
+    color: #fff;
+    line-height: 57px;
+}
+
+span{
+    color: yellow;
+    font-size: 15px;
+}
