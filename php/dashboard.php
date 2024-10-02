@@ -84,10 +84,10 @@ if(!isset( $_SESSION['adm'] )){
 
     <div id="box">
     
-       <h2><strong>
+       <h3><strong>
+       <a style='float:right;' href="visualiza.php?idCliente=<?php echo $valor['idCliente']; ?>"><ion-icon size="small" name="chevron-forward-outline"></ion-icon></a> 
             <?php echo $valor['nome']; ?>
-            <a style='float:right;' href="visualiza.php?idCliente=<?php echo $valor['idCliente']; ?>"><ion-icon size="small" name="chevron-forward-outline"></ion-icon></a> 
-        </strong></h2><hr>
+        </strong></h3><hr>
 
        <strong><label>Endereço: </label></strong>
             <?php echo $valor['logradouro']; ?>,

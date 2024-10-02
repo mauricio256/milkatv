@@ -19,11 +19,11 @@
         <span class="span"></span>
 
         <label>UF:</label>
-        <input required value="BA" class="input"  name="UF" type="text">
+        <input required readonly value="BA" class="input"  name="UF" type="text">
         <span class="span"></span>
 
         <label>Cidade:</label>
-        <input required value="Juazeiro" class="input"  name="cidade" type="text">
+        <input required readonly value="Juazeiro" class="input"  name="cidade" type="text">
         <span class="span"></span>
 
         <label>Bairro:</label>

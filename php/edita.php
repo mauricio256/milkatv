@@ -24,7 +24,6 @@ $result_adm = $sth->fetchAll();
 
 foreach ($result_adm as &$valor) {
     $idAdmin = $valor["idAdmin"];
-    $nomeAdmin = $valor["usuario"];
 }
 
 //// Busca Cliente por ID
@@ -51,57 +50,63 @@ $result = $sth->fetchAll();
 <body>
 
     <h1>Editar Cadastro</h1>
-    <?php
-        foreach ($result as &$valor) {
-    ?>
+    
 
-    <form id="form" action="cadastro.php" method="post">
+    <form id="form" action="validaEdita.php" method="post">
+        
+        <input  hidden value="<?php echo $idCliente;?>" type="text" name="idCliente">
+        <input  hidden value="<?php echo $idAdmin;?>" type="text" name="idadm">
+
+        <?php
+            foreach ($result as &$valor) {
+        ?>
+
         <label>Nome Completo:</label>
         <input required name="nome" class="input" type="text" value="<?php echo $valor['nome']; ?>" name="nome" id="nome">
         <span class="span"></span>
 
         <label>UF:</label>
-        <input required value="BA" class="input" name="UF" type="text">
+        <input required readonly value="<?php echo $valor['UF']; ?>" class="input" name="UF" type="text">
         <span class="span"></span>
 
         <label>Cidade:</label>
-        <input required value="Juazeiro" class="input" name="cidade" type="text">
+        <input required readonly value="<?php echo $valor['cidade']; ?>" class="input" name="cidade" type="text">
         <span class="span"></span>
 
         <label>Bairro:</label>
-        <input required name="bairro" class="input" type="text">
+        <input required name="bairro" value="<?php echo $valor['bairro']; ?>" class="input" type="text">
         <span class="span"></span>
 
         <label>Logradouro:</label>
-        <input required name="logradouro" class="input" type="text">
+        <input required name="logradouro" value="<?php echo $valor['logradouro']; ?>" class="input" type="text">
         <span class="span"></span>
 
         <label>Número:</label>
-        <input required name="numero" class="input" type="text">
+        <input required name="numero" value="<?php echo $valor['numero']; ?>" class="input" type="text">
         <span class="span"></span>
 
         <label>Complemento:</label>
-        <input required name="complemento" class="input" type="text">
+        <input required name="complemento" value="<?php echo $valor['complemento']; ?>" class="input" type="text">
         <span class="span"></span>
 
         <label>Contato:</label>
-        <input class="input" type="text" id="phone" name="contato" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" />
+        <input class="input" type="text" id="phone" value="<?php echo $valor['contato']; ?>" name="contato" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" />
         <span class="span"></span>
 
         <label for="dataConclusao">Último pagamento: </label>
-        <input required class="input" type="date" name="ultimoPag">
+        <input required class="input" type="date" value="<?php echo $valor['ultimoPag']; ?>" name="ultimoPag">
         <span class="span"></span>
 
         <label>Conta Milka:</label>
-        <input class="input" type="text" name="contaMilka" />
+        <input class="input" type="text" value="<?php echo $valor['conta']; ?>" name="contaMilka" />
         <span class="span"></span>
 
         <label>Senha:</label>
-        <input class="input" type="text" name="senhaMilka" />
+        <input class="input" type="text" value="<?php echo $valor['senha']; ?>" name="senhaMilka" />
         <span class="span"></span>
 
-        <button type="submit" name="submit" onclick="return validaForm();">Enviar</button>
-        <a href="dashboard.php">Dashboard</a>
+        <button type="submit" name="submit" onclick="return validaForm();">Salvar alterações</button>
+        <a href="visualiza.php?idCliente=<?php echo $idCliente?>">Fechar</a>
     </form>
     <?php
         }

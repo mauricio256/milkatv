@@ -8,7 +8,7 @@ $adm = $_SESSION['adm'];
 
 /// verifica se existe id cliente e se valor e nulo
 if ($idCliente <= 0 || $idCliente == NULL || $idCliente == '') {
-    header('Location:../index.php');
+    header(header: 'Location:../index.php');
 };
 
 /// verifica se existe sessao de adm e se nao tiver volta para menu
@@ -57,7 +57,7 @@ $result = $sth->fetchAll();
 <body>
 
     <header>
-        <a href="../index.php"><img src="../img/icon/sair.png" width="30"></a>
+        <a href="dashboard.php"><img src="../img/icon/sair.png" width="30"></a>
         <h3><strong>Administrador: </strong> <?php echo $nomeAdmin; ?></h3>
         <hr><br>
     </header>
@@ -86,16 +86,17 @@ $result = $sth->fetchAll();
             <h3><?php echo $valor['ultimoPag']; ?></h3>
             <hr>
             Status
-            <h3>Ativo<h3>
+            <h3>Ativo</h3>
                     <hr>
 
-                    CONTA MILKA:
-                    <h3><input id="conta" value="<?php echo $valor['conta']; ?>" /><button id="btnConta">Copiar</button>
-                        <h3>
-                            SENHA MILKA:
-                            <h3><input id="senha" value="<?php echo $valor['senha']; ?>" /><button
-                                    id="btnSenha">Copiar</button>
-                                <h3>
+            Conta Milka
+            <h3><input id="conta" readonly value="<?php echo $valor['conta']; ?>"/> 
+            <button id="btnConta">Copiar</button></h3>
+                    
+            Senha Milka
+            <h3><input id="senha" readonly value="<?php echo $valor['senha']; ?>" />
+            <button id="btnSenha">Copiar</button></h3>
+                                
                                     <hr>
                                     <br>
                                     <ul>
