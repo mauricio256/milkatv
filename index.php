@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if(isset( $_SESSION['adm'] )){
+    header('Location:php/dashboard.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@ session_start();
     <div class="wrapper">
         <div class="form-box">
             <div class="logo">
-                <img src="./img/icon/logo.png" width="100">
+                <img src="./img/icon/logo.png" width="130">
             </div>
             <form action="php/verificaLogin.php" method="post" id="form"> 
 
@@ -33,7 +38,7 @@ session_start();
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="text" class="input" name="mail">
                     <span class="span"></span>
-                    <label>E-mail</label>
+                    <label>Usuário</label>
                 </div>   
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>

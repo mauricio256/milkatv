@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset( $_SESSION['adm'] )){
+    header('Location:../index.php');
+};
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +19,7 @@
 </head>
 <body>
     
-    <h1>Cadastro</h1>
+    <h1>Novo Cadastro</h1>
     <form id="form" action="cadastro.php" method="post">
         <input hidden value="<?php echo $_GET['idadm'];?>" type="text" name="idadm">
 

@@ -7,10 +7,9 @@ if(!isset( $_SESSION['adm'] )){
     header('Location:../index.php');
 };
 
- $adm = $_SESSION['adm'];
+    $adm = $_SESSION['adm'];
 
-
-  //// busca ADMs
+    //// busca ADMs
     $sth = $conn->prepare("SELECT * FROM administrador WHERE email = '$adm' ");
     $sth->execute();
 
@@ -20,9 +19,6 @@ if(!isset( $_SESSION['adm'] )){
         $idAdmin = $valor["idAdmin"];
         $nomeAdmin = $valor["usuario"];
     }
-
-
-
 
     /// Busca Clientes
     $filtro = 1 ;// $_POST["filtro"]; se nao existir o botao de buscar filtro e busca recebe 1 para listar todos
@@ -60,7 +56,7 @@ if(!isset( $_SESSION['adm'] )){
 <body>
     
     <header> 
-        <a href="../index.php"><img src="../img/icon/sair.png" width="30"></a>
+        <a href="logout.php"><img src="../img/icon/sair.png" width="30"></a>
         <h3><strong>Administrador: </strong> <?php echo $nomeAdmin; ?></h3><hr><br>
         <form action='dashboard.php' method='post'>
             <label>FILTRAR POR:</label>
@@ -77,41 +73,37 @@ if(!isset( $_SESSION['adm'] )){
 
         <span>(<?php echo $count; ?>) Registro encontrados</span>
     </header>
-
+ <section class="flexbox">
     <?php  
         foreach ($result as &$valor) {    
     ?>
-
-        <section class="flexbox">
-            <div id="box">
-                <h3><strong>
-                <a style='float:right;' href="visualiza.php?idCliente=<?php echo $valor['idCliente']; ?>"><ion-icon size="small" name="chevron-forward-outline"></ion-icon></a> 
-                        <?php echo $valor['nome']; ?>
-                    </strong></h3><hr>
-
-                    <strong><label>Endereço: </label></strong>
-                        <?php echo $valor['logradouro']; ?>,
-                        <?php echo $valor['numero']; ?>,       
-                        <?php echo $valor['cidade']; ?>,
-                        <?php echo $valor['UF']; ?><br>
-                    <strong><label>Complemento: </label></strong>
-                        <?php echo $valor['complemento']; ?><br> 
-                    <strong><label>Contato: </label></strong>
-                        <?php echo $valor['contato']; ?>  <br>
-                    <strong><label>Status: </label></strong>
-                    Ativo<br>
-            </div>
-        </section>
-
-
+                <div id="box"> 
+                    <h3><strong>
+                    <a style='float:right;' href="visualiza.php?idCliente=<?php echo $valor['idCliente']; ?>"><ion-icon size="small" name="chevron-forward-outline"></ion-icon></a> 
+                            <?php echo $valor['nome']; ?>
+                        </strong></h3>
+                        <label>Conta: </label>
+                            <?php echo $valor['conta']; ?>
+                        <hr><br>
+                        
+                       
+                        <strong><label>Endereço: </label></strong>
+                            <?php echo $valor['logradouro']; ?>,
+                            <?php echo $valor['numero']; ?>,       
+                            <?php echo $valor['cidade']; ?>,
+                            <?php echo $valor['UF']; ?><br>
+                        <strong><label>Complemento: </label></strong>
+                            <?php echo $valor['complemento']; ?><br> 
+                        <strong><label>Contato: </label></strong>
+                            <?php echo $valor['contato']; ?>  <br>
+                </div>
             <!-- js dos icones site ionicons -->
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-   
-
     <?php 
         } 
         unset($valor); // quebra a referência com o último elemento
-    ?>        
+    ?>  
+ </section>     
 </body>
 </html>

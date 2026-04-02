@@ -2,6 +2,10 @@
 include_once('conn.php');
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
+if(!isset( $_SESSION['adm'] )){
+    header('Location:../index.php');
+};
+
 if(isset($_POST['submit']) == NULL){
     header('Location:../index.php');
 }

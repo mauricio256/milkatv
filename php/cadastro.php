@@ -2,6 +2,10 @@
 include_once('conn.php');
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
+if(!isset( $_SESSION['adm'] )){
+    header('Location:../index.php');
+};
+
 if(isset($_POST['submit']) == NULL){
     header('Location:../index.php');
 }
@@ -54,7 +58,7 @@ try {
         echo"<script>
                 alert('CADASTRADO COM SUCESSO!');
                 javascript:window.location='dashboard.php';
-            </script>";  
+            </script>";   
     else:
 
         echo"<script>
@@ -68,5 +72,6 @@ try {
                 <a href='../index.html' style='text-decoration:none; border-radius: 5px; color:white; background-color:gray; padding: 10px; '>Sair</a>
               </div>"; 
     }
+ $conn = null;      
              
 ?>

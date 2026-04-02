@@ -7,18 +7,18 @@
 }
 
 body{
-    background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("../img/fundo.jpg") no-repeat center center / cover;
+    background-color: rgb(230, 229, 229); 
     display: flex;
-    justify-content:center;
-    align-items: center;
-    min-height: 100vh;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+    height: 100vh;
 }
 
 .form-box {
-    width: 100%;    
-    background: rgba(255, 255, 255, 0.15);
-    padding: 50px;
+    background-color: #fff; 
+    width: 500px;
+    height: 500px;
+    padding: 40px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -33,34 +33,37 @@ body{
 }
 
 .form-box .forgot-pass a{
-    color:#f3d3d39a;
+    color:#000;
 }
 
 .form-box .btn{
+    color: #fff; 
+    background-color: #4b3cbcb0;
     width: 100%;
     height: 45px;
     margin-top: 15px;
     border: none;
     outline: none;
     font-size: 1.2rem;
+    border-radius: 3px;
 }
 
 .input-box{
     position: relative;
     width: 100%;
     height: 50px;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #000;
     margin: 40px 0;
 }
 
 .input-box label{
     position: absolute;
     top: 50%;
-    left: 5px;
+    left: 2px;
     transform: translateY(-50%);
-    pointer-events: none;
+    pointer-events: none; 
     transition: .5s;
-    color: #f3d3d39a;
+    color: #000;
 }
 
 .input-box input:focus~label,
@@ -74,41 +77,61 @@ body{
    background: transparent;
    border: none;
    outline: none;
-   color: #fff;
+   color:#4b3cbc;
    font-size:15px;
+}
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color:#4b3cbc !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .input-box .icon{
     position: absolute;
     right: 8px;
     font-size: 17px;
-    color: #fff;
+    color: #4b3cbc;
     line-height: 57px;
 }
 
 span{
-    color: yellow;
+    color: rgb(0, 0, 255);
     font-size: 15px;
     position:absolute;
     margin-left: -250px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
    body{
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         width: auto;  
+        background-color: #fff; 
     }
     
     .form-box{   
+    width: auto;
+    height: auto;
     background: none;
-    padding: 0;
     border-radius: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     box-shadow: none;
     }
 
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color:#4b3cbc !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
     
 }

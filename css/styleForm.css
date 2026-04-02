@@ -1,12 +1,11 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    color: #fff;
+    color: #000000;
 }
 
 body{ 
-    background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("../img/fundo.jpg") no-repeat center center / cover;
+    background-color: rgb(230, 229, 229); 
    
 }
 
@@ -15,22 +14,23 @@ img{
 }
 h1,p{
     text-align: center;
-    color: #fff;
+    color: #000000;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 form{
+    background-color: #fff; 
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     width: auto;  
     display:flex;
     flex-direction: column;
     gap: 0.5rem;
     width: auto;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0px auto;
-    padding: 20px 50px;
+    padding: 70px;
     border-radius: 10px;
     text-align: left;
 }
@@ -60,14 +60,14 @@ button{
     margin-top: 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #2da4df;
+    background-color: #4b3cbcb0;
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
 }
 
 a{
-    color: #fff;
+    color: #000;
     padding: 15px;
     width: 30%;
     text-align: center;
@@ -76,12 +76,19 @@ a{
 }
 
 
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 800px) {
+        body{
+            background-color: #fff;
+        }
         form{
-           text-align: left;
-           padding: 12px;
+              box-shadow: none;
+            text-align: left;
+           padding: 30px;
         }  
+
+        h1{
+            font-size: 25px;
+        }
         
         img{
             display: inline;

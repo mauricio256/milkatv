@@ -3,6 +3,10 @@ session_start();
 include_once("conn.php");
 date_default_timezone_set('America/Sao_Paulo');
 
+if(!isset( $_SESSION['adm'] )){
+    header('Location:../index.php');
+};
+
 $idCliente = $_GET['idCliente'];
 $adm = $_SESSION['adm'];
 

@@ -1,6 +1,10 @@
 <?php
 include_once("conn.php");
 
+if(!isset( $_SESSION['adm'] )){
+    header('Location:../index.php');
+};
+
 $id = $_GET["idCleinte"];
 
 $del = $conn->prepare("DELETE FROM cliente WHERE `cliente`.`idCliente` = '$id'");

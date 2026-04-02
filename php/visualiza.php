@@ -3,6 +3,10 @@ session_start();
 include_once("conn.php");
 date_default_timezone_set('America/Sao_Paulo');
 
+if(!isset( $_SESSION['adm'] )){
+    header('Location:../index.php');
+};
+
 $idCliente = $_GET['idCliente'];
 $adm = $_SESSION['adm'];
 
@@ -35,6 +39,20 @@ $sth = $conn->prepare("SELECT * FROM `cliente` WHERE `fk_idAdmin` = $idAdmin AND
 $sth->execute();
 
 $result = $sth->fetchAll();
+
+
+//// funcao que verifica vencimento
+function verificaVencimento($data1, $data2) {
+     // Cria objetos DateTime
+     $d1 = new DateTime($data1);
+    $d2 = new DateTime($data2);
+
+    // Calcula a diferença
+    $diff = $d1->diff($d2);
+
+    // retorna true caso a diferenca seja mais de 30 dias
+    return $diff->days > 31;
+}
 
 ?>
 
@@ -83,11 +101,29 @@ $result = $sth->fetchAll();
             <h3><?php echo $valor['contato']; ?></h3>
             <hr>
             Último Pagamento
-            <h3><?php echo $valor['ultimoPag']; ?></h3>
+            <h3><?php echo $valor['ultimoPag'];?></h3>
             <hr>
             Status
-            <h3>Ativo</h3>
-                    <hr>
+            <h3>
+            <?php
+
+
+$bot = "@toptec_pag_bot"; // nome do bot
+$telegramUrl = "https://t.me/" . $bot;
+               
+            $dataAtual = date("Y-m-d");
+            $dataPag = $valor['ultimoPag'];
+
+                if (verificaVencimento($dataAtual, $dataPag)) {
+                    echo "<p style=color:red;>Suspenso <a style='padding:6px; color:#fff; background-color:orange;' href='tg://resolve?domain=toptec_pag_bot&text=".$valor['conta']."'> Renovar</a></p>";
+                    
+                } else {
+                    echo "<p style=color:green;>Ativo</p> <a style='padding:6px; color:#fff; background-color:orange;' href='tg://resolve?domain=toptec_pag_bot&text=".$valor['conta']."'> Renovar mesmo assim</a>";
+                     
+                }
+            
+            ?></h3>
+            <hr>
 
             Conta Milka
             <h3><input id="conta" readonly value="<?php echo $valor['conta']; ?>"/> 

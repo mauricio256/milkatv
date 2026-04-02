@@ -1,20 +1,15 @@
 body{
     margin: 0;
-    padding: 0;
-    padding-bottom: 100px;
+    padding: 100px 300px;
+    padding-bottom: 50px;
     font-family: "Roboto", sans-serif;
-    color: rgba(0, 0, 0, 0.842);
-    background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("../img/fundo.jpg") no-repeat center center / cover;
+    background-color: rgb(230, 229, 229); 
 }
 
 /* Grid */
 .flexbox{
 	display: flex;
     flex-wrap: wrap;
-}
-.flexbox> div{
-    flex: 1 1 200px;
 }
 
 h2{
@@ -33,13 +28,18 @@ span{
 }
 
 header{
-    color: white;
-    padding: 15px;
+    margin: 10px;
+}
+
+header,.flexbox{
+     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+     background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
 }
 
 div#box{
-    background-color:rgb(221, 220, 220);
-    max-width: 350px;
+    background-color:#fff;
+    width: 350px;
     margin: 10px;
     margin-top: 30px;
     padding: 20px;
@@ -121,4 +121,32 @@ select{
     border: none;
     color: #fff;
     padding: 10px;
+  }
+
+
+  @media only screen and (max-width: 800px) {
+    body{
+        background-color: #fff;
+    }
+    .flexbox{
+	    display: block;
+        flex-wrap: wrap;
+        padding: 0px;
+    }
+
+    div#box{
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.55);
+    width: auto;
+    }
+    body{
+    margin: 0;
+    padding: 20px;
+    }
+
+    header,.flexbox{
+     margin: 0;
+     padding: 0;
+    }
+
+
   }

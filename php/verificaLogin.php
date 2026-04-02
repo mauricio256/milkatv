@@ -27,7 +27,7 @@ $sql = "SELECT usuario, email, senha FROM administrador where email = '$mail' an
         $_SESSION['adm'] = $mail;
         header('Location:dashboard.php');
     }else{
-        $_SESSION['MSG_loginErro'] = "<div style='text-align:center; margin-top:20px;'> <p style='background-color:#fd3838; color:white; padding:5px;'>E-mail e/ou senha incorreto(s)</p></div>";
+        $_SESSION['MSG_loginErro'] = "<div style='text-align:center; margin-top:20px;'> <p style='background-color:#fd3838; color:white;  border-radius: 3px; padding:8px;'>usuário ou senha incorreto</p></div>";
         header('Location:../index.php');
     }
     
