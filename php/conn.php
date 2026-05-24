@@ -1,9 +1,9 @@
 <?php
 /*
 $host="sql106.infinityfree.com";
-$dbname="if0_36899048_milkatv";
-$user = "if0_36899048";
-$pass = "MRkSRiqH7x8Z";
+$dbname="if0_41994844_scciptv";
+$user = "if0_41994844";
+$pass = "oiciruaM130121";
 */
 
 $host="localhost";
